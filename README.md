@@ -15,7 +15,7 @@ The Dream Roster is a **Web API** designed with a **3-layer architecture** to en
   *  [Business Layer](#business-layer)
   *  [Presentation Layer](#presentation-layer)
 - [Using](#using)
-- [Contact](#contact)
+- [Contact]((#incoming_envelope-contact-information-incoming_envelope))
 
 # Project Overview
 <div>
@@ -145,34 +145,90 @@ The Business Layer is registered for dependency injection, making it easy to con
 ________________________________________________________________________________________________________________________
 
 ## Presentation Layer
-Controllers
-Filters
-Middlewares
-Jwt
 
-### Endpoints
-| URL           | Method | Auth | Description                       |
-|---------------|--------|------|-----------------------------------|
-| /api/teams    | GET    | Yes  | Retrieve a list of teams         |
-| /api/teams/{id} | GET | Yes  | Retrieve a specific team by ID   |
-| /api/teams    | POST   | Yes  | Create a new team                |
-| /api/teams/{id} | PUT  | Yes  | Update an existing team by ID    |
-| /api/teams/{id} | DELETE | Yes | Delete a team by ID              |
+The Presentation Layer is the API interface of the Dream Roster application. It exposes endpoints that allow clients to interact with the application, handling incoming requests, processing them, and returning responses. This layer communicates with the Business Layer to retrieve, modify, or delete data and applies security and request management features to ensure efficient and safe operations. With Controllers, Filters, Middleware, and JWT Authentication, ensures the Dream Roster API is secure, well-structured, and capable of handling complex client interactions efficiently.
 
+### Controllers
+
+Controllers serve as the entry point for client requests, defining **endpoints** that interact with different parts of the application. Each controller is responsible for handling HTTP requests for a specific entity, such as teams or players, by calling appropriate services within the Business Layer. Lets look into some of endpoints together.
+ 
+ #### Endpoints
+| URL           | Method | Description                       |
+|---------------|--------|------
+| /api/teams    | GET    |  Retrieve a list of teams         |
+| /api/teams/{id} | GET |  Retrieve a specific team by ID   |
+| /api/teams    | POST   |  Create a new team                |
+| /api/teams/{id} | PUT  |  Update an existing team by ID    |
+| /api/teams/{id} | DELETE |  Delete a team by ID              |
+| /api/players    | GET    |  Retrieve a list of players         |
+| /api/players/{id} | GET |  Retrieve a specific player by ID   |
+| /api/players    | POST   |  Create a new player                |
+| /api/players/{id} | PUT  |  Update an existing player by ID    |
+| /api/players/{id} | DELETE |  Delete a player by ID              |
+
+### Filters
+
+**Filters** provide a way to handle cross-cutting concerns, such as validation, logging, and error handling, across multiple endpoints without duplicating code. Some commonly used filters include:
+  - **Authorization Filters**: To verify user permissions for specific actions.
+  - **Timecontrol Filters**: I created action filter in this project for time range of project works.
+
+### Middleware
+
+**Middleware** components process requests as they pass through the application pipeline. They manage tasks that must occur for all requests, such as:
+  - **Maintenance**: I created maintenance middleware with controlling toggle-action on and off.
+  - **Middleware Extension**: For using service like .Net default -> app.UseMaintenanceMode();
+
+### JWT Authentication
+
+**JWT (JSON Web Token)** Authentication secures the API by providing a stateless method of authentication. The Presentation Layer verifies the token on each request to ensure that users are authorized. Key aspects include:
+  - **Token Generation**: Issuing JWT tokens after successful login, which contain user information and a timestamp.
+  - **Token Validation**: Checking each incoming request for a valid token before granting access to secure endpoints.
+  - **Role-Based Access**: Determining user access levels by decoding JWTs, allowing or restricting actions based on user roles.
 
 **[⬆ Back to Table of Contents](#learn-more-about--table-of-contents)**
 
 ________________________________________________________________________________________________________________________
 
 # Using
-JS samples, frontend view
+
+Lets look a example of using this web api on frontend. You can use other actions with replacing url part. I used pure javascript below but I can advise search 'Axios' for fetching api operations.
+
+```javascript
+// Example of getting teams
+async function fetchTeams() { // Fetch is a asynchronous operation ( return promise ) in JavaScript so you need to use .then or async, await keyword approach.
+  try {
+    const response = await fetch('https://localhost:7084/api/teams', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer YOUR_JWT_TOKEN`, // Replace with your JWT token
+        'Content-Type': 'application/json'
+      }
+    });
+    
+    if (!response.ok) {
+      throw new Error('Error at getting response ...');
+    }
+
+    const teams = await response.json();
+    console.log(teams); // Display the list of teams
+  } catch (error) {
+    console.error('Error at fetching teams:', error);
+  }
+}
+
+```
 
 **[⬆ Back to Table of Contents](#learn-more-about--table-of-contents)**
 
 ________________________________________________________________________________________________________________________
 
-# Contact
-Contact info etc.
+# :incoming_envelope: Contact Information :incoming_envelope:
+
+For any questions or further information, please don't hesitate to contact me :pray:
+
+Email: merttopcu.dev@gmail.com
+
+LinkedIn: https://www.linkedin.com/in/mert-topcu/
 
 Happy Coding ❤️
    
