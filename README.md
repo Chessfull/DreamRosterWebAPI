@@ -38,6 +38,8 @@ Through the Dream Roster API, you can:
 
 **[⬆ Back to Table of Contents](#learn-more-about--table-of-contents)**
 
+________________________________________________________________________________________________________________________
+
 ## Data Layer
 
 ### Entities 
@@ -113,11 +115,34 @@ Simplified Commit/Rollback Logic: The Unit of Work pattern centralizes commit an
 
 **[⬆ Back to Table of Contents](#learn-more-about--table-of-contents)**
 
+________________________________________________________________________________________________________________________
+
 ## Business Layer
-Operations -> Folder view and explanation
-Service and Managers -> Folder view and explanation
+
+The Business Layer serves as the intermediary **between** the **Data Layer** and **Presentation Layer**, applying business logic and managing application-specific processes. It encapsulates the core functionality of the application, ensuring separation of concerns and a cleaner, more organized architecture.
+
+### Operations
+
+I managed services and managers according to each operations like Operations -> Team -> ITeamService, TeamManager.
+
+### Service and Managers
+
+- **Services:** Provide application logic and coordinate data flow between the repository and other components. Services handle actions such as creating, reading, updating, and deleting entities, ensuring validation and applying business rules as needed.
+
+- **Managers:** Focus on domain-specific operations, organizing more complex or specific tasks that involve several entities or cross-cutting concerns (e.g., calculating player skills or team stats). This layer may call multiple services or repositories as part of its operations.
+
+### Example Usage
+In the context of this project:
+  - **TeamService:** Manages team-related operations, such as creating a team, updating team information, or fetching teams with related players and league data.
+  - **PlayerService:** Handles operations like adding players to a team, updating player stats, and retrieving players by different criteria.
+  
+### Dependency Injection
+
+The Business Layer is registered for dependency injection, making it easy to configure and use across the application. This approach promotes modularity, testability, and a clear separation of concerns by allowing services to be injected where needed, without requiring direct instantiation.
 
 **[⬆ Back to Table of Contents](#learn-more-about--table-of-contents)**
+
+________________________________________________________________________________________________________________________
 
 ## Presentation Layer
 Controllers
@@ -137,10 +162,14 @@ Jwt
 
 **[⬆ Back to Table of Contents](#learn-more-about--table-of-contents)**
 
+________________________________________________________________________________________________________________________
+
 # Using
 JS samples, frontend view
 
 **[⬆ Back to Table of Contents](#learn-more-about--table-of-contents)**
+
+________________________________________________________________________________________________________________________
 
 # Contact
 Contact info etc.
