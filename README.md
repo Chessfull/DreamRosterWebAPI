@@ -191,7 +191,9 @@ ________________________________________________________________________________
 
 # Using
 
-Lets look a example of using this web api on frontend. You can use other actions with replacing url part. I used pure javascript below but I can advise search 'Axios' for fetching api operations.
+Lets look a example of using this web api on frontend below as video and fetch api samples with codes. You can use other actions with replacing url part. I used pure javascript below but I can advise search 'Axios' for fetching api operations.
+
+https://github.com/user-attachments/assets/fe1f3517-a850-4d1c-a2ca-64f8709f0ea4
 
 ```javascript
 // Example of getting teams
