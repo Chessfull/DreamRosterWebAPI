@@ -20,9 +20,13 @@ Entities and Relations -> Picture
 Repositories -> Tell logic of repositories
 UnitOfWork -> Tell logic of UnitOfWork
 
+**[⬆ Back to Table of Contents](#learn-more-about--table-of-contents)**
+
 # Business Layer
 Operations -> Folder view and explanation
 Service and Managers -> Folder view and explanation
+
+**[⬆ Back to Table of Contents](#learn-more-about--table-of-contents)**
 
 # Presentation Layer
 Controllers
@@ -30,8 +34,22 @@ Filters
 Middlewares
 Jwt
 
+### Endpoints
+| URL           | Method | Auth | Description                       |
+|---------------|--------|------|-----------------------------------|
+| /api/teams    | GET    | Yes  | Retrieve a list of teams         |
+| /api/teams/{id} | GET | Yes  | Retrieve a specific team by ID   |
+| /api/teams    | POST   | Yes  | Create a new team                |
+| /api/teams/{id} | PUT  | Yes  | Update an existing team by ID    |
+| /api/teams/{id} | DELETE | Yes | Delete a team by ID              |
+
+
+**[⬆ Back to Table of Contents](#learn-more-about--table-of-contents)**
+
 # Using
 JS samples, frontend view
+
+**[⬆ Back to Table of Contents](#learn-more-about--table-of-contents)**
 
 # Contact
 Contact info etc.
