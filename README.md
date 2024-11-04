@@ -15,7 +15,7 @@ The Dream Roster is a **Web API** designed with a **3-layer architecture** to en
   *  [Business Layer](#business-layer)
   *  [Presentation Layer](#presentation-layer)
 - [Using](#using)
-- [Contact]((#incoming_envelope-contact-information-incoming_envelope))
+- [Contact](#incoming_envelope-contact-information-incoming_envelope)
 
 # Project Overview
 <div>
